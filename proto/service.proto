@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "grpc_services/proto";
+
+// Defines gRPC service functions.
+service MessageService {
+  // Function for sending a message.
+  rpc SendMessage(Message) returns (Response) {}
+}
+
+// The message to be sent.
+message Message {
+  string text = 1; // Text of the message.
+}
+
+// The response returned after receiving a message.
+message Response {
+  string reply = 1; // Reply content.
+}
